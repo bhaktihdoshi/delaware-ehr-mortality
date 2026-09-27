@@ -1,0 +1,171 @@
+[
+  {
+    "title": "Recorded condition burden and death status",
+    "text": [
+      "Synthetic Delaware EHR analysis",
+      "Bhakti Doshi",
+      "Revised portfolio edition | 27 September 2026"
+    ],
+    "figure": null
+  },
+  {
+    "title": "The Delaware synthetic dataset",
+    "text": [
+      "1,753 synthetic records, with 253 recorded deaths (14.43%).",
+      "Synthea provides simulated health histories, not a representative sample of current Delaware residents.",
+      "The generator version and seed were not supplied."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Data and analysis workflow",
+    "text": [
+      "Patient, condition, medication and encounter CSVs linked by patient ID.",
+      "107,376 condition rows, 191,649 medication rows and 173,900 encounter rows.",
+      "Validated joins and dates, distinct historical counts, Wilson intervals and exploratory logistic models."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Cohort and demographic definitions",
+    "text": [
+      "875 female and 878 male records.",
+      "Fixed reference date: 4 October 2024, the latest observed encounter start.",
+      "Age at reference is approximately 30-75 years. For deceased records it is hypothetical attained age, not age at death."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Exclusions change the outcome distribution",
+    "text": [
+      "Restricting to 8-40 descriptions retains 1,716 records and 231 deaths.",
+      "37 excluded records contain 22 deaths: 2.11% of records but 8.70% of deaths.",
+      "Death proportion falls by 0.97 percentage points. The full export remains the primary descriptive cohort."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Recorded burden and death proportion",
+    "text": [
+      "Corrected groups: 8-19, 20-29 and 30-40 descriptions.",
+      "Restricted-cohort proportions: 11.22%, 12.68% and 23.35%."
+    ],
+    "figure": "burden_current.png"
+  },
+  {
+    "title": "Age at reference and death status",
+    "text": [
+      "All nonempty groups show Wilson 95% intervals.",
+      "The youngest high-burden cell has 0/6 deaths, with an upper interval limit of 39.03%."
+    ],
+    "figure": "age_current.png"
+  },
+  {
+    "title": "Recorded sex and death status",
+    "text": [
+      "Male death proportions are higher within each restricted burden stratum.",
+      "Ratios: 1.81, 1.58 and 1.73. Corrected Holm p-values: 0.016, 0.037 and 0.037."
+    ],
+    "figure": "sex_current.png"
+  },
+  {
+    "title": "Condition counts and adjustment",
+    "text": [
+      "Unadjusted condition OR: 1.019 in the full export and 1.039 in the restricted cohort.",
+      "Age/sex-adjusted condition OR: 0.967 in the full export (p = 0.002), compared with 0.983 (p = 0.159) in the restricted cohort.",
+      "Cohort definition and adjustment change the conclusion. Inverse coefficients do not demonstrate protection."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Sex-by-burden interaction",
+    "text": [
+      "Restricted cohort: interaction OR 0.996 (95% CI 0.951-1.042), p = 0.847.",
+      "Full export: interaction OR 1.004 (0.964-1.045), p = 0.855.",
+      "Insufficient evidence of modification on the log-odds scale. This does not prove equal effects."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Medication history by recorded sex",
+    "text": [
+      "Mean counts use actual distinct medication descriptions.",
+      "The lowest-burden means differ: 5.58 for females and 3.59 for males. Historical counts do not measure concurrent treatment."
+    ],
+    "figure": "medication_means.png"
+  },
+  {
+    "title": "Supported conclusions",
+    "text": [
+      "Male-versus-female adjusted OR is about 1.84 in both cohorts.",
+      "Condition-count associations depend on cohort definition and adjustment.",
+      "The analysis does not establish whether severity, behaviour or physiological reserve explains these patterns."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Limits and further work",
+    "text": [
+      "Synthetic data, unknown generation settings and historical exposures limit interpretation.",
+      "There are 25 deaths before age 20 despite adult reference ages. These are different age concepts.",
+      "A longitudinal study needs entry dates, baseline conditions, follow-up and validated diagnosis definitions."
+    ],
+    "figure": null
+  },
+  {
+    "title": "References",
+    "text": [
+      "Walonoski et al. (2018), JAMIA, 25(3), 230-238. doi:10.1093/jamia/ocx079",
+      "Fortin et al. (2012), Annals of Family Medicine, 10(2), 142-151. doi:10.1370/afm.1337",
+      "Crimmins, Shim and Zhang (2019), Clinical Chemistry, 65(1), 135-145. doi:10.1373/clinchem.2018.288332",
+      "Synthea CSV File Data Dictionary. Full links and provenance are in the essay and repository."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Appendix: methods and reproducibility",
+    "text": [
+      "Included compressed extracts retain all rows and only required columns.",
+      "Run both notebooks, eight targeted tests and the report builder using Python 3.12.",
+      "Source/extract hashes, fixed cutoff and model formulas are documented. No clinical prediction claim is made."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Appendix: adjusted models",
+    "text": [
+      "Full export / restricted cohort, respectively:",
+      "Male versus female: OR 1.836 / 1.835.",
+      "Age at reference, per year: OR 1.083 / 1.082.",
+      "Condition count, per description: OR 0.967 / 0.983.",
+      "Full confidence intervals, sample sizes and p-values are in outputs/models.csv."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Appendix: encounter composition",
+    "text": [
+      "Acute-share Mann-Whitney comparisons use one Holm family across three burden strata.",
+      "Adjusted p-values: 1.000, 0.611 and 1.000. Routine share is complementary and is not tested twice.",
+      "The full export has 1,333 other-class encounters, excluded from the share denominator but included in total encounter counts."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Appendix: exploratory diagnosis flags",
+    "text": [
+      "Among records matching at least one broad diagnosis category: females 70/656 deaths (10.67%), males 126/703 (17.92%).",
+      "Keyword categories overlap and do not measure severity. Benign or historical diagnoses may match broad terms.",
+      "Sparse race and disease cells require denominators and uncertainty, not causal explanations."
+    ],
+    "figure": null
+  },
+  {
+    "title": "Appendix: medication history",
+    "text": [
+      "Full-export death proportions are 9.68%, 8.97%, 10.72%, 16.95% and 19.69% across medication groups.",
+      "The pattern is not strictly monotonic. Association does not show medication effects on mortality."
+    ],
+    "figure": "medication_current.png"
+  }
+]

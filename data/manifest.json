@@ -1,0 +1,51 @@
+{
+  "reference_date": "2024-10-04",
+  "reference_date_basis": "Latest observed encounter START date in supplied export; not a verified simulator end date.",
+  "source": "User-supplied Delaware Synthea CSV export",
+  "generator_version": "Unknown",
+  "seed": "Unknown",
+  "tables": {
+    "patients": {
+      "rows": 1753,
+      "columns": [
+        "Id",
+        "BIRTHDATE",
+        "DEATHDATE",
+        "GENDER",
+        "RACE"
+      ],
+      "source_sha256": "a7c42b482b2d358bb84e8fed75fc2c3864a77f0e90450d583c2d7fbf314a215e",
+      "analysis_sha256": "11fa514a9cd2c93bc43bb779daefe60f2014748dabbe4f828c7546d36ae13acd"
+    },
+    "conditions": {
+      "rows": 107376,
+      "columns": [
+        "PATIENT",
+        "DESCRIPTION",
+        "START"
+      ],
+      "source_sha256": "74b596a90eb0069f282a9f0c7cfa85240c56df0e00fcb128a581186243002ee9",
+      "analysis_sha256": "d965787b7484517cfb09c60018d9e12cf82da9719f07273f2aa694b4071edad6"
+    },
+    "medications": {
+      "rows": 191649,
+      "columns": [
+        "PATIENT",
+        "DESCRIPTION",
+        "START"
+      ],
+      "source_sha256": "839fd8245e1cd98eec9e41d53e2b671b50185acc414094533bdc030c9761b96f",
+      "analysis_sha256": "ac2f72f757775c6db581d2784be48199feb82774be6e50e78f8cc01e641036db"
+    },
+    "encounters": {
+      "rows": 173900,
+      "columns": [
+        "PATIENT",
+        "ENCOUNTERCLASS",
+        "START"
+      ],
+      "source_sha256": "5cff62d4266a47356a568eacddf5aaef1073b74121138b395d4abfce7d9d55d4",
+      "analysis_sha256": "e29a8d95af0cad3fae7dfb0e37c947a16d0dc414376a453b3c8fb6e3479dea71"
+    }
+  }
+}
